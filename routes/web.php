@@ -18,3 +18,11 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+// POSGRADOS
+Route::get('/posgrados', [App\Http\Controllers\PosgradoController::class, 'index'])
+    ->name('posgrados.index');
+
+// REVISTAS
+Route::get('/revistas', [App\Http\Controllers\RevistaController::class, 'index'])
+    ->name('revistas.index');
+
