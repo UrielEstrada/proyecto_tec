@@ -31,42 +31,48 @@ class RevistaController extends Controller
     */
     public function numeros()
     {
-        $numeros = RevistaNumero::with('tematica')->orderBy('fecha_inicio', 'desc')->get();
+        $numeros = RevistaNumero::with('tematica')
+            ->orderBy('fecha_inicio', 'desc')
+            ->get();
 
         return view('revistas.numeros.index', compact('numeros'));
     }
 
     /*
     |--------------------------------------------------------------------------
-    | DETALLE DE UN NÚMERO (VOL / NÚM / AÑO)
+    | DETALLE DE UN NÚMERO
     |--------------------------------------------------------------------------
     */
     public function verNumero($id)
     {
-        $numero = RevistaNumeros::with(['tematica', 'articulos.autores.persona'])
-                    ->where('id_numero', $id)
-                    ->firstOrFail();
+        $numero = RevistaNumero::with([
+                'tematica',
+                'articulos.autores.persona'
+            ])
+            ->where('id_numero', $id)
+            ->firstOrFail();
 
         return view('revistas.numeros.show', compact('numero'));
     }
 
-
     /*
     |--------------------------------------------------------------------------
-    | CONVOCATORIA (INSTRUCCIONES PARA PUBLICAR)
+    | CONVOCATORIA — INSTRUCCIONES PARA PUBLICAR
     |--------------------------------------------------------------------------
     */
     public function convocatoria()
     {
-        // Carga la convocatoria más reciente
-        $convocatoria = RevistaConvocatoria::with('numero')->latest()->first();
+        // Cargar la convocatoria más reciente
+        $convocatoria = RevistaConvocatoria::with('numero')
+            ->latest()
+            ->first();
 
         return view('revistas.convocatoria.index', compact('convocatoria'));
     }
 
     /*
     |--------------------------------------------------------------------------
-    | CONSEJO EDITORIAL
+    | COMITÉ EDITORIAL
     |--------------------------------------------------------------------------
     */
     public function comite()
@@ -78,13 +84,16 @@ class RevistaController extends Controller
 
     /*
     |--------------------------------------------------------------------------
-    | DETALLE DE ARTÍCULO (PDF + autores)
+    | DETALLE DE ARTÍCULO
     |--------------------------------------------------------------------------
     */
     public function verArticulo($id)
     {
-        $articulo = RevistaArticulo::with(['autores.persona', 'numero'])
-                    ->findOrFail($id);
+        $articulo = RevistaArticulo::with([
+                'autores.persona',
+                'numero'
+            ])
+            ->findOrFail($id);
 
         return view('revistas.articulos.show', compact('articulo'));
     }

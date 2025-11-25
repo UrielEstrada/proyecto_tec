@@ -8,7 +8,7 @@
         <!-- TARJETA PRINCIPAL -->
         <div class="bg-white shadow-2xl rounded-2xl p-12 mb-16">
 
-            <!-- MENÚ SUPERIOR (DENTRO DE LA TARJETA) -->
+            <!-- MENÚ SUPERIOR -->
             <div class="flex justify-center space-x-10 mb-12 text-lg font-semibold">
                 <a href="{{ route('revistas.numeros') }}" class="text-blue-700 hover:underline">Ejemplares</a>
                 <a href="{{ route('revistas.convocatoria') }}" class="text-blue-700 hover:underline">Convocatoria</a>
@@ -48,31 +48,46 @@
                 <!-- COMPUTACIÓN -->
                 <div class="bg-gray-50 border rounded-xl shadow p-6">
                     <h4 class="text-xl font-bold text-blue-700 mb-2">Ciencias Computacionales</h4>
-                    <ul class="list-disc ml-6 text-gray-700 space-y-1">
-                        @foreach ($tematicas->where('area', 'computacion') as $item)
-                            <li>{{ $item->descripcion }}</li>
-                        @endforeach
-                    </ul>
+
+                    @if ($tematicas->where('area', 'computacion')->count() === 0)
+                        <p class="text-gray-500 italic">No hay temáticas registradas aún.</p>
+                    @else
+                        <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                            @foreach ($tematicas->where('area', 'computacion') as $item)
+                                <li>{{ $item->descripcion }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
 
                 <!-- ELECTRÓNICA -->
                 <div class="bg-gray-50 border rounded-xl shadow p-6">
                     <h4 class="text-xl font-bold text-blue-700 mb-2">Electrónica</h4>
-                    <ul class="list-disc ml-6 text-gray-700 space-y-1">
-                        @foreach ($tematicas->where('area', 'electronica') as $item)
-                            <li>{{ $item->descripcion }}</li>
-                        @endforeach
-                    </ul>
+
+                    @if ($tematicas->where('area', 'electronica')->count() === 0)
+                        <p class="text-gray-500 italic">No hay temáticas registradas aún.</p>
+                    @else
+                        <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                            @foreach ($tematicas->where('area', 'electronica') as $item)
+                                <li>{{ $item->descripcion }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
 
                 <!-- MECATRÓNICA -->
                 <div class="bg-gray-50 border rounded-xl shadow p-6">
                     <h4 class="text-xl font-bold text-blue-700 mb-2">Mecatrónica</h4>
-                    <ul class="list-disc ml-6 text-gray-700 space-y-1">
-                        @foreach ($tematicas->where('area', 'mecatronica') as $item)
-                            <li>{{ $item->descripcion }}</li>
-                        @endforeach
-                    </ul>
+
+                    @if ($tematicas->where('area', 'mecatronica')->count() === 0)
+                        <p class="text-gray-500 italic">No hay temáticas registradas aún.</p>
+                    @else
+                        <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                            @foreach ($tematicas->where('area', 'mecatronica') as $item)
+                                <li>{{ $item->descripcion }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
             </div>
 
@@ -93,7 +108,6 @@
             </div>
 
         </div>
-
     </div>
 </div>
 
