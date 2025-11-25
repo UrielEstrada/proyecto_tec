@@ -10,9 +10,30 @@
 
             <!-- MENÚ SUPERIOR -->
             <div class="flex justify-center space-x-10 mb-12 text-lg font-semibold">
-                <a href="{{ route('revistas.numeros') }}" class="text-blue-700 hover:underline">Ejemplares</a>
-                <a href="{{ route('revistas.convocatoria') }}" class="text-blue-700 hover:underline">Convocatoria</a>
-                <a href="{{ route('revistas.comite') }}" class="text-blue-700 hover:underline">Comité Editorial</a>
+                
+                <!-- INICIO -->
+                <a href="{{ route('revistas.index') }}" 
+                   class="text-blue-700 hover:underline">
+                    Inicio
+                </a>
+
+                <!-- EJEMPLARES -->
+                <a href="{{ route('revistas.numeros') }}" 
+                   class="text-blue-700 hover:underline">
+                    Ejemplares
+                </a>
+
+                <!-- CONVOCATORIA -->
+                <a href="{{ route('revistas.convocatoria') }}" 
+                   class="text-blue-700 hover:underline">
+                    Convocatoria
+                </a>
+
+                <!-- COMITÉ EDITORIAL -->
+                <a href="{{ route('revistas.comite') }}" 
+                   class="text-blue-700 hover:underline">
+                    Comité Editorial
+                </a>
             </div>
 
             <!-- TITULO PRINCIPAL -->
@@ -89,6 +110,7 @@
                         </ul>
                     @endif
                 </div>
+
             </div>
 
             <!-- COMITÉ EDITORIAL -->

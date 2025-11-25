@@ -7,6 +7,14 @@
 
         <div class="bg-white shadow-2xl rounded-2xl p-12 mb-16">
 
+            <!-- MENÚ SUPERIOR (MISMO EN TODAS LAS SECCIONES) -->
+            <div class="flex justify-center space-x-10 mb-12 text-lg font-semibold">
+                <a href="{{ route('revistas.index') }}" class="text-blue-700 hover:underline">Inicio</a>
+                <a href="{{ route('revistas.numeros') }}" class="text-blue-700 hover:underline">Ejemplares</a>
+                <a href="{{ route('revistas.convocatoria') }}" class="text-blue-700 hover:underline">Convocatoria</a>
+                <a href="{{ route('revistas.comite') }}" class="text-blue-700 hover:underline">Comité Editorial</a>
+            </div>
+
             <!-- TÍTULO -->
             <h2 class="text-3xl font-bold text-gray-900 text-center mb-10">
                 Comité Editorial

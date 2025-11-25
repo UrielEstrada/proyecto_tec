@@ -7,6 +7,14 @@
 
         <div class="bg-white shadow-2xl rounded-2xl p-12 mb-16">
 
+            <!-- MENÚ SUPERIOR (MISMO EN TODAS LAS SECCIONES) -->
+            <div class="flex justify-center space-x-10 mb-12 text-lg font-semibold">
+                <a href="{{ route('revistas.index') }}" class="text-blue-700 hover:underline">Inicio</a>
+                <a href="{{ route('revistas.numeros') }}" class="text-blue-700 hover:underline">Ejemplares</a>
+                <a href="{{ route('revistas.convocatoria') }}" class="text-blue-700 hover:underline">Convocatoria</a>
+                <a href="{{ route('revistas.comite') }}" class="text-blue-700 hover:underline">Comité Editorial</a>
+            </div>
+
             <!-- TÍTULO -->
             <h2 class="text-3xl font-bold text-gray-900 text-center mb-6">Convocatoria</h2>
 
@@ -44,7 +52,7 @@
                     @endif
 
                     @if ($convocatoria->archivo_plantilla)
-                    <a href="{{ asset('storage/' . $convocatoria->archivo_plantilla) }}" 
+                    <a href="{{ asset('storage/' . $convocatoria->archivo_plantatoria) }}" 
                        target="_blank"
                        class="p-5 bg-gray-50 border rounded-xl shadow hover:shadow-lg transition">
                         <h4 class="text-lg font-bold text-blue-700">📝 Plantilla para Artículos</h4>

@@ -8,8 +8,18 @@
         <!-- TARJETA PRINCIPAL -->
         <div class="bg-white shadow-2xl rounded-2xl p-12 mb-16">
 
+            <!-- MENÚ SUPERIOR (MISMO DEL INDEX PRINCIPAL) -->
+            <div class="flex justify-center space-x-10 mb-12 text-lg font-semibold">
+                <a href="{{ route('revistas.index') }}" class="text-blue-700 hover:underline">Inicio</a>
+                <a href="{{ route('revistas.numeros') }}" class="text-blue-700 hover:underline">Ejemplares</a>
+                <a href="{{ route('revistas.convocatoria') }}" class="text-blue-700 hover:underline">Convocatoria</a>
+                <a href="{{ route('revistas.comite') }}" class="text-blue-700 hover:underline">Comité Editorial</a>
+            </div>
+
             <!-- TÍTULO -->
-            <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">Ejemplares Publicados</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">
+                Ejemplares Publicados
+            </h2>
 
             <!-- DESCRIPCIÓN -->
             <p class="text-gray-700 text-center max-w-3xl mx-auto mb-12">
@@ -23,7 +33,7 @@
 
                 @forelse ($numeros as $numero)
                     <a href="{{ route('revistas.numero.show', $numero->id_numero) }}"
-                        class="block bg-gray-50 border rounded-xl shadow p-6 hover:shadow-lg transition">
+                       class="block bg-gray-50 border rounded-xl shadow p-6 hover:shadow-lg transition">
 
                         <h3 class="text-xl font-bold text-blue-700 mb-2">
                             {{ $numero->titulo ?? "Volumen ".$numero->id_numero }}
@@ -42,12 +52,11 @@
                         </span>
 
                     </a>
-                @empty
 
+                @empty
                     <div class="col-span-3 text-center py-20 text-gray-500">
                         No hay ejemplares publicados aún.
                     </div>
-
                 @endforelse
 
             </div>
